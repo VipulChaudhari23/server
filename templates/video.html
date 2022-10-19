@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>Video Processing</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <div class="box">
+        <h1 class="mb-5">Create {{ data['video_name'] }}</h1>
+        <form id="__form__" action="/create-video" method="post">
+            {% for form_element in data["form_fields"] %}
+            <input name="video_name" style="display: none;" value="{{ data['video_name'] }}">
+            <div class="form-group mb-4">
+                <label for="bridename">{{ form_element["label"] }}</label>
+                <input type="{{ form_element['type'] }}" class="form-control" id="{{ form_element['id'] }}" name="{{ form_element['id'] }}" placeholder="{{ form_element['hint'] }}"
+                    required>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+        
+
+
+    </div>
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>
